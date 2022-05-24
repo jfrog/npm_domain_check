@@ -1,0 +1,6 @@
+typer
+colorama
+tqdm~=4.64.0
+requests~=2.27.1
+python-whois
+dnspython~=2.2.1
