@@ -9,8 +9,11 @@ import requests
 def str_to_date(date_str: Union[dict, str]) -> datetime:
     if isinstance(date_str, dict):
         date_str = date_str["time"]
-    return datetime.strptime(date_str[:-5], "%Y-%m-%dT%H:%M:%S")
-
+#    return datetime.strptime(date_str[:-5], "%Y-%m-%dT%H:%M:%S")
+    try: 
+        return datetime.strptime(date_str[:-5], "%Y-%m-%dT%H:%M:%S")
+    except ValueError:
+        return datetime.strptime(date_str[:-5], "%Y-%m-%dT%H:%M")
 
 def get_user_data(user_name: str, page: int) -> dict:
     headers = {"authority": "www.npmjs.com", "accept": "*/*", "x-spiferack": "1"}
